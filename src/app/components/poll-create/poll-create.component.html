@@ -1,10 +1,19 @@
-<form class="container col-sm-7 col-12">
+<form (ngubmit)="submitForm()" [formGroup]="polllForm" class="container col-sm-7 col-12">
     <div class="form-group">
         <label class="col-sm-3 col-lg-2 col-form-label col-form-label-sm">
             Question:
         </label>
         <div class="col-sm-12">
-            <input type="text" placeholder="Question" class="form-control form-control-sm">
+            <input type="text" formControlName="question" placeholder="Question" class="form-control form-control-sm">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 col-lg-2 col-form-label col-form-label-sm">
+            Image:
+        </label>
+        <div class="col-sm-12">
+            <input type="text" formControlName="image" placeholder="Image" class="form-control form-control-sm">
         </div>
     </div>
     <div class="form-group">
@@ -12,7 +21,7 @@
             Option:
         </label>
         <div class="col-sm-12">
-            <input type="text" placeholder="Option 1" class="form-control form-control-sm">
+            <input type="text" formControlName="option1" placeholder="Option 1" class="form-control form-control-sm">
         </div>
     </div>
     <div class="form-group">
@@ -20,7 +29,7 @@
             Option:
         </label>
         <div class="col-sm-12">
-            <input type="text" placeholder="Option 2" class="form-control form-control-sm">
+            <input type="text" placeholder="Option 2" formControlName="option2" class="form-control form-control-sm">
         </div>
     </div>
     <div class="form-group ">
@@ -28,7 +37,7 @@
             Option:
         </label>
         <div class="col-sm-12">
-            <input type="text" placeholder="Option 3" class="form-control form-control-sm">
+            <input type="text" placeholder="Option 3" formControlName="option3" class="form-control form-control-sm">
         </div>
     </div>
     <div class="form-group ">
@@ -36,7 +45,7 @@
             Option:
         </label>
         <div class="col-sm-12">
-            <input type="text" placeholder="Option 4" class="form-control form-control-sm">
+            <input type="text" formControlName="option4" placeholder="Option 4" class="form-control form-control-sm">
         </div>
     </div>
     <div class="d-flex justify-content-center">

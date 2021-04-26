@@ -1,0 +1,12 @@
+<h3>Poll Question Title</h3>
+<form [formGroup]="voteForm" (ngSubmit)="submitForm()">
+    <div *ngFor="let op of options;let i=index" class="form-check">
+        <input id="r1" formControlName="selected" [value]="i" type="radio" class="form-check-input">
+        <label for="r1">{{op}}</label>
+    </div>
+    <button [disabled]="!voteForm.valid" type="submit" class="btn mt-2 btn-primary">Submiit</button>
+</form>
+
+<div id="poll-result">
+
+</div>
