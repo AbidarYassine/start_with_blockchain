@@ -1,36 +1,33 @@
+import { PollService } from './services/poll.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  constructor(private pollService: PollService) { }
   title = 'blockchain';
   show = false;
+  activePoll = null;
   receiveMessage($event) {
     console.log($event);
     this.show = $event
   }
-  polls = [
-    {
-      question: "Do you Like dogs or cats?",
-      votes: [0, 15],
-      image: "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      voted: true,
-    },
-    {
-      question: "Angular or React or Vue?",
-      votes: [10, 5, 7],
-      image: "https://moben.fr/wp-content/uploads/2018/09/vuevsreactvsangular.jpg",
-      voted: false,
-    },
-    {
-      question: "FSTG OR ENSA?",
-      votes: [5, 3],
-      image: "https://www.uca.ma/public/website/theme-2/img/logo.png",
-      voted: true,
-    },
-  ]
+
+  ngOnInit() {
+    this.pollService.getPolls().subscribe(data => {
+      this.polls = data;
+    });
+  }
+  polls = [];
+  setActivePoll(poll) {
+    console.log(poll);
+    this.activePoll = null;
+    setTimeout(() => {
+      this.activePoll = poll;
+    }, 100);
+  }
 }

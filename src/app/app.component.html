@@ -8,10 +8,12 @@
 <app-poll-create *ngIf="show"></app-poll-create>
 <div class="d-flex">
     <div class="container poll-list">
-        <app-poll *ngFor="let poll of polls" [image]="poll.image" [voted]="poll.voted" [votes]="poll.votes"
-            [question]="poll.question"></app-poll>
+        <app-poll (click)="setActivePoll(poll)" *ngFor="let poll of polls" [image]="poll.image" [voted]="poll.voted"
+            [votes]="poll.votes" [question]="poll.question"></app-poll>
     </div>
     <div class="container poll-detail">
-        <app-poll-vote></app-poll-vote>
+        <app-poll-vote *ngIf="activePoll" [votes]="activePoll.votes" [options]="activePoll.options"
+            [question]="activePoll.question" [voted]="activePoll.voted">
+        </app-poll-vote>
     </div>
 </div>
