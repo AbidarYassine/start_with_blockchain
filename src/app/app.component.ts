@@ -1,3 +1,5 @@
+import { PollVote } from './models/PollVote';
+import { PollForm } from './models/poll-form';
 import { PollService } from './services/poll.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
@@ -29,5 +31,11 @@ export class AppComponent implements OnInit {
     setTimeout(() => {
       this.activePoll = poll;
     }, 100);
+  }
+  handleCreatePoll(poll: PollForm) {
+    this.pollService.createPoll(poll);
+  }
+  isVoted(polllVote: PollVote) {
+    this.pollService.vote(polllVote);
   }
 }

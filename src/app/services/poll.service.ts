@@ -1,3 +1,5 @@
+import { PollVote } from './../models/PollVote';
+import { PollForm } from './../models/poll-form';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Poll } from '../models/poll';
@@ -37,11 +39,11 @@ export class PollService {
       },
     ]).pipe(delay(2000));
   }
-  vote(pollId: number, votenumber: number) {
-    console.log(pollId, votenumber);
+  vote(pollVote: PollVote) {
+    console.log(pollVote.id, pollVote.vote);
   }
-  createPoll(question: string, image: string, options: string[]) {
-    console.log(question, image, options);
+  createPoll(poll: PollForm) {
+    console.log(poll.question, poll.image, poll.options);
   }
 
 }

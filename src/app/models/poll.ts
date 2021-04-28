@@ -1,11 +1,13 @@
-export interface Poll {
+import { PollForm } from "./poll-form";
+
+export interface Poll extends PollForm {
     // stitla3
     id: number;
-    question: string;
+    // question: string;
     votes: number[];
     voted: boolean;
-    image: string;
-    options: string[];
+    // image: string;
+    // options: string[];
 
 }
 
